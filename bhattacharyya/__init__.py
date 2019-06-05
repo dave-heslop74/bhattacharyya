@@ -28,8 +28,8 @@ def Bayes(MU1,K1,MU2,K2):
 
 def calculator(IA,DA,KA,RA,IB,DB,KB,RB):
 
-    muA = pmag.dir2cart([DA,IA])
-    muB = pmag.dir2cart([DB,IB])
+    muA = dir2cart([DA,IA])
+    muB = dir2cart([DB,IB])
     
     C = Chernoff(0.5,muA,KA*RA,muB,KB*RB)
     output1 = widgets.HTML(value='<h4>Bhattacharyya Coefficient = {0:.3f}</h4>'.format(C))
