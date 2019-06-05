@@ -76,22 +76,23 @@ def open_console(*args):
 
 #The following function is taken directly from pmagpy
 def dir2cart(d): # from pmag.py
-"""converts list or array of vector directions, in degrees, to array of cartesian coordinates, in x,y,z form """
+    """converts list or array of vector directions, in degrees, to array of cartesian coordinates, in x,y,z form """
     ints = np.ones(len(d)).transpose() # get an array of ones to plug into dec,inc pairs             
     d = np.array(d)
     rad = old_div(np.pi, 180.)
-if len(d.shape) > 1: # array of vectors                                                         
+    if len(d.shape) > 1: # array of vectors                                                         
         decs, incs = d[:,0] * rad, d[:,1] * rad
-if d.shape[1] == 3: ints = d[:,2] # take the given lengths                  
-else: # single vector                                 
+    if d.shape[1] == 3: ints = d[:,2] # take the given lengths                  
+    else: # single vector                                 
         decs, incs = np.array(d[0]) * rad, np.array(d[1]) * rad
-if len(d) == 3:
+    if len(d) == 3:
             ints = np.array(d[2])
-else:
+    else:
             ints = np.array([1.])
+    
     cart = np.array([ints * np.cos(decs) * np.cos(incs),
                        ints * np.sin(decs) * np.cos(incs),
                        ints * np.sin(incs)
                      ]).transpose()
-return cart
+    return cart
 
