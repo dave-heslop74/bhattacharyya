@@ -1,0 +1,7 @@
+README.md
+setup.cfg
+setup.py
+bhatpy.egg-info/PKG-INFO
+bhatpy.egg-info/SOURCES.txt
+bhatpy.egg-info/dependency_links.txt
+bhatpy.egg-info/top_level.txt
