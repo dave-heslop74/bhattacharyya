@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="bhattacharyya",
-    version="1.0.2",
+    version="1.0.3",
     author="Dave Heslop",
     author_email="dave.heslop74@gmail.com",
     description="The Bhattacharyya package",

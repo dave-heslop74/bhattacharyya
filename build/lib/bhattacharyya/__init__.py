@@ -28,8 +28,8 @@ def Bayes(MU1,K1,MU2,K2):
 
 def calculator(IA,DA,KA,RA,IB,DB,KB,RB):
 
-    muA = dir2cart([DA,IA])
-    muB = dir2cart([DB,IB])
+    muA = ID2XYZ(IA,DA)
+    muB = ID2XYZ(IB,DB)
     
     C = Chernoff(0.5,muA,KA*RA,muB,KB*RB)
     output1 = widgets.HTML(value='<h4>Bhattacharyya Coefficient = {0:.3f}</h4>'.format(C))
@@ -72,25 +72,12 @@ def open_console(*args):
     out = widgets.interactive_output(calculator, {'IA': IA, 'DA': DA, 'KA': KA, 'RA': RA, 'IB': IB, 'DB': DB, 'KB': KB, 'RB': RB})
     display(ui,out)
 
-#The following function is taken directly from pmagpy
-def dir2cart(d): # from pmag.py
-    """converts list or array of vector directions, in degrees, to array of cartesian coordinates, in x,y,z form """
-    ints = np.ones(len(d)).transpose() # get an array of ones to plug into dec,inc pairs             
-    d = np.array(d)
-    rad = old_div(np.pi, 180.)
-    if len(d.shape) > 1: # array of vectors                                                         
-        decs, incs = d[:,0] * rad, d[:,1] * rad
-    if d.shape[1] == 3: ints = d[:,2] # take the given lengths                  
-    else: # single vector                                 
-        decs, incs = np.array(d[0]) * rad, np.array(d[1]) * rad
-    if len(d) == 3:
-            ints = np.array(d[2])
-    else:
-            ints = np.array([1.])
+def ID2XYZ(I,D):
     
-    cart = np.array([ints * np.cos(decs) * np.cos(incs),
-                       ints * np.sin(decs) * np.cos(incs),
-                       ints * np.sin(incs)
-                     ]).transpose()
-    return cart
+    I = np.deg2rad(I)
+    D = np.deg2rad(D)
+    
+    XYZ=np.column_stack((np.cos(D)*np.cos(I),np.sin(D)*np.cos(I),np.sin(I)))
+    
+    return XYZ
 
