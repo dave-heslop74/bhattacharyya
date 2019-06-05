@@ -1,8 +1,0 @@
-README.md
-setup.cfg
-setup.py
-bhattacharyya/__init__.py
-bhattacharyya.egg-info/PKG-INFO
-bhattacharyya.egg-info/SOURCES.txt
-bhattacharyya.egg-info/dependency_links.txt
-bhattacharyya.egg-info/top_level.txt
