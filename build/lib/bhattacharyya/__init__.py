@@ -2,8 +2,6 @@
 
 import numpy as np
 import scipy as sp
-import pmagpy.ipmag as ipmag
-import pmagpy.pmag as pmag
 import scipy.optimize as sciopt #import quadrature function
 import ipywidgets as widgets
 from ipywidgets import interact, interactive, fixed, Layout
