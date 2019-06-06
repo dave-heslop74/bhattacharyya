@@ -1,5 +1,4 @@
 # compile using: python3 setup.py sdist bdist_wheel
-
 import numpy as np
 import scipy as sp
 import scipy.optimize as sciopt #import quadrature function
@@ -37,10 +36,10 @@ def calculator(IA,DA,KA,RA,IB,DB,KB,RB):
     B = Bayes(muA,KA*RA,muB,KB*RB)
     output2 = widgets.HTML(value='<h4>Bayes error = {0:.3f}</h4>'.format(B))
     
-    if (RA==1) & (RB==1):
-        Rtitle = widgets.HTML(value='<h3>Comparison of Fisher distributions:</h3>')
-    else:
-        Rtitle = widgets.HTML(value='<h3>Comparison of paleomagnetic poles:</h3>')
+    #if (RA==1) & (RB==1):
+    #    Rtitle = widgets.HTML(value='<h3>Comparison of Fisher distributions:</h3>')
+    #else:
+    Rtitle = widgets.HTML(value='<h3>Similarity of paleomagnetic poles:</h3>')
 
     results=widgets.VBox((Rtitle,output1,output2))
     display(results)
@@ -53,14 +52,14 @@ def open_console(*args):
     spacer = widgets.HTML(value='<font color="white">This is some text!</font>')
 
     Atitle = widgets.HTML(value='<h4>Distribution A</h4>')
-    IA=widgets.BoundedFloatText(value=0.0,min=-90.0,max=90.0,step=0.01,description='Inc$_A$ [-90$^\circ$: +90$^\circ$]:',style=style,layout=layout)
-    DA=widgets.BoundedFloatText(value=0.0,min=0.0,max=360.0,step=0.01,description='Dec$_A$ [0$^\circ$: 360$^\circ$]:',style=style,layout=layout)
+    IA=widgets.BoundedFloatText(value=0.0,min=-90.0,max=90.0,step=0.01,description='PLat$_A$ [-90$^\circ$: +90$^\circ$]:',style=style,layout=layout)
+    DA=widgets.BoundedFloatText(value=0.0,min=0.0,max=360.0,step=0.01,description='Plon$_A$ [0$^\circ$: 360$^\circ$]:',style=style,layout=layout)
     KA=widgets.BoundedFloatText(value=0.01,min=0.0,max=100000,step=0.01,description='$\kappa_A$ [>0]:',style=style,layout=layout)
     RA=widgets.BoundedFloatText(value=1,min=1,max=100000,step=0.01,description='$R_A$ [$\geq$1]:',style=style,layout=layout)
 
     Btitle = widgets.HTML(value='<h4>Distribution B</h4>')
-    IB=widgets.BoundedFloatText(value=0.0,min=-90.0,max=90.0,step=0.01,description='Inc$_B$ [-90$^\circ$: +90$^\circ$]:',style=style,layout=layout)
-    DB=widgets.BoundedFloatText(value=0.0,min=0.0,max=360.0,step=0.01,description='Dec$_B$ [0$^\circ$: 360$^\circ$]:',style=style,layout=layout)
+    IB=widgets.BoundedFloatText(value=0.0,min=-90.0,max=90.0,step=0.01,description='Plat$_B$ [-90$^\circ$: +90$^\circ$]:',style=style,layout=layout)
+    DB=widgets.BoundedFloatText(value=0.0,min=0.0,max=360.0,step=0.01,description='Plon$_B$ [0$^\circ$: 360$^\circ$]:',style=style,layout=layout)
     KB=widgets.BoundedFloatText(value=0.01,min=0.0,max=100000,step=0.01,description='$\kappa_B$ [>0]:',style=style,layout=layout)
     RB=widgets.BoundedFloatText(value=1,min=1.0,max=100000,step=0.01,description='$R_B$ [$\geq$1]:',style=style,layout=layout)
     
